@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_education_class_employee,education_class_employee,model_education_class,base.group_user,1,1,1,1
+access_education_class_student,education_class_student,model_education_student,base.group_user,1,1,1,1
+access_wizard_enrollment_single_employee,wizard_enrollment_single_employee,model_wizard_enrollment_single,base.group_user,1,1,1,1
+access_education_enrollment_employee,education.enrollment.employee,model_education_enrollment,base.group_user,1,1,1,1

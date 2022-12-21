@@ -1,0 +1,35 @@
+<odoo>
+	<data>
+
+		<record id="view_education_enrollment_single_form"
+			model="ir.ui.view">
+			<field name="name">wizard.enrollment.single.form</field>
+			<field name="model">wizard.enrollment.single</field>
+			<field name="arch" type="xml">
+				<form string="Single Enrollment Wizard">
+					<group>
+						<field name="registration_number" />
+						<field name="class_id" attrs="{'invisible': [('active_model','=','education.class')]}"/>
+						<field name="student_id" attrs="{'invisible': [('active_model','=','education.student')]}" />
+						<field name="active_model" invisible="1"/>
+					</group>
+					<footer>
+						<button name="enroll" string="Enroll" type="object"
+							class="btn-primary" />
+						<button string="Cancel" class="btn-default"
+							special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="education_enrollment_single_action"
+			model="ir.actions.act_window">
+			<field name="name">Single Enrollment Wizard</field>
+			<field name="res_model">wizard.enrollment.single</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>
