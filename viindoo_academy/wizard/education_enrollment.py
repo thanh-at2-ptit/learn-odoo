@@ -15,6 +15,8 @@ class WizardEnrollmentSingle(models.TransientModel):
     
     active_model = fields.Char()
     
+    wizard_multipe_id = fields.Many2one('wizard.enrollment.multi')
+    
     @api.model
     def default_get(self, fields_list):
         res = super().default_get(fields_list)
@@ -22,7 +24,7 @@ class WizardEnrollmentSingle(models.TransientModel):
         active_model = self._context.get('active_model')
         active_id = self._context.get('active_id')
 
-        if active_model == 'education.class':
+        if not 'class_id' not in fields_list and active_model == 'education.class':
             res['class_id'] = active_id
         elif active_model == 'education.student':
             res['student_id'] = active_id
@@ -31,7 +33,6 @@ class WizardEnrollmentSingle(models.TransientModel):
         return res
     
     def enroll(self):
-
         if not self.class_id or not self.student_id:
             raise UserError(_("You must specify both class and student fist."))
 
@@ -42,3 +43,13 @@ class WizardEnrollmentSingle(models.TransientModel):
             'date': self.date or fields.Date.today()
             })
 
+        
+class WizardEnrollmentMulti(models.TransientModel):
+    _name = 'wizard.enrollment.multi'
+    
+    line_ids = fields.One2many('wizard.enrollment.single', 'wizard_multipe_id')
+    
+    def enroll(self):
+        active_ids = self._context.get('active_id')
+        pass
+    
