@@ -40,8 +40,9 @@
 					<field name="line_ids">
 						<tree editable="bottom">
 							<field name="registration_number" />
-							<field name="student_id" />
-							<field name="class_id" />
+							<field name="class_id" attrs="{'column_invisible': [('active_model','=','education.class')]}"/>
+							<field name="student_id" attrs="{'column_invisible': [('active_model','=','education.student')]}" />
+							<field name="active_model" invisible="1"/>
 							<field name="date" />
 						</tree>
 					</field>

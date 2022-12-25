@@ -50,6 +50,6 @@ class WizardEnrollmentMulti(models.TransientModel):
     line_ids = fields.One2many('wizard.enrollment.single', 'wizard_multipe_id')
     
     def enroll(self):
-        active_ids = self._context.get('active_id')
-        pass
-    
+        for l in self.line_ids:
+            WizardEnrollmentSingle.enroll(l)
+
