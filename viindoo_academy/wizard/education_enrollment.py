@@ -49,7 +49,59 @@ class WizardEnrollmentMulti(models.TransientModel):
     
     line_ids = fields.One2many('wizard.enrollment.single', 'wizard_multipe_id')
     
+    def enroll_huong(self):
+        """
+        Huong
+        """
+        active_ids = self._context.get('active_ids')
+        active_model = self._context.get('active_model')
+        for c in active_ids:
+            for l in self.line_ids:
+                if active_model == 'education.class':
+                    l.class_id = c
+                elif active_model == 'education.student':
+                    l.student_id = c
+                l.enroll()
+
     def enroll(self):
-        active_ids = self._context.get('active_id')
-        pass
-    
+        vals_list = []
+        active_model = self._context.get('active_model')
+        records = self.env[active_model].browse(self.env.context.get('active_ids'))
+        for record in records:
+            for line in self.line_ids:
+                vals_list.append({
+                    'name': line.registration_number,
+                    'class_id': record.id if active_model == 'education.class' else line.class_id.id,
+                    'student_id': record.id if active_model == 'education.student' else line.student_id.id,
+                    'date': line.date or fields.Date.today()
+                    })
+        self.env['education.enrollment'].create(vals_list)
+                
+        
+
+    def enroll_hao(self):
+        """
+        Hảo
+        """
+        active_model = self._context.get('active_model')
+        if active_model == 'education.class':
+            classes = self.env[active_model].browse(self.env.context.get('active_ids'))
+            for l in self.line_ids:
+                for cls in classes:
+                    self.env['education.enrollment'].create({
+                        'name': l.registration_number,
+                        'class_id': cls.id,
+                        'student_id': l.student_id.id,
+                        'date': l.date or fields.Date.today()
+                        })
+        elif active_model == 'education.student':
+            students = self.env[active_model].browse(self.env.context.get('active_ids'))
+            for l in self.line_ids:
+                for student in students:
+                    self.env['education.enrollment'].create({
+                        'name': l.registration_number,
+                        'class_id': l.class_id.id,
+                        'student_id': student.id,
+                        'date': l.date or fields.Date.today()
+                        })
+
