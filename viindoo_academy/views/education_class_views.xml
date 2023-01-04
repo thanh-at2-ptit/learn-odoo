@@ -52,18 +52,17 @@
 							<field name="company_id" />
 						</group>
 						<notebook>
-							<page name="student" string="Students">
-								<field name="student_ids">
-									<tree editable="top">
+							<page name="enrollment" string="Enrollment">
+								<field name="enrollment_ids">
+									<tree>
 										<field name="name" />
-										<field name="create_date" />
-										<field name="create_uid" />
+										<field name="student_id" />
+										<field name="date" />
 									</tree>
 								</field>
 							</page>
-
-							<page name="students" string="Historical Students">
-								<field name="historical_student_ids">
+							<page name="enroll_student" string="Enrolled Students">
+								<field name="enrolled_student_ids">
 									<tree>
 										<field name="name" />
 										<field name="create_date" />
