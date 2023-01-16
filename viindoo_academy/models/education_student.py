@@ -24,6 +24,7 @@ class EducationStudent(models.Model):
     ethnic_code = fields.Char(related='ethnic_id.code', store=True)
     
     ethnic_code2 = fields.Char(compute='_compute_ethnic_code2', store=True)
+    country_id = fields.Many2one('res.country')
     
     @api.depends('ethnic_id')
     def _compute_ethnic_code2(self):
