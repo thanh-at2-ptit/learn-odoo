@@ -4,3 +4,4 @@ access_education_class_student,education_class_student,model_education_student,b
 access_wizard_enrollment_single_employee,wizard_enrollment_single_employee,model_wizard_enrollment_single,base.group_user,1,1,1,1
 access_education_enrollment_employee,education.enrollment.employee,model_education_enrollment,base.group_user,1,1,1,1
 access_wizard_enrollment_multi_employee,wizard_enrollment_multi_employee,model_wizard_enrollment_multi,base.group_user,1,1,1,1
+access_academy_report_employee,academy.report.employee,model_academy_report,base.group_user,1,0,0,0

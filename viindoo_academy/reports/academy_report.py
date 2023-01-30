@@ -4,7 +4,9 @@ from odoo import models, fields, api
 class AcademyReport(models.Model):
     _name = 'academy.report'
     _description = 'Academy Report'
+    _auto = False
 
+    name = fields.Char(string='Ref.', readonly=True)
     enrollment_id = fields.Many2one('education.enrollment', readonly=True)
     student_id = fields.Many2one('education.student', readonly=True)
     class_id = fields.Many2one('education.class', readonly=True)
@@ -20,7 +22,9 @@ class AcademyReport(models.Model):
 
     def _select(self):
         return """
-        SELECT enrollment.id AS enrollment_id,
+        SELECT enrollment.id AS id,
+            enrollment.name AS name,
+            enrollment.id AS enrollment_id,
             student.id AS student_id,
             class.id AS class_id,
             enrollment.date AS date,
@@ -38,5 +42,4 @@ class AcademyReport(models.Model):
             LEFT JOIN res_ethnic eth ON eth.id = student.ethnic_id
             LEFT JOIN res_country c ON c.id =  student.country_id
         """
-        
         
