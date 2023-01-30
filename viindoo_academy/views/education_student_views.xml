@@ -6,7 +6,8 @@
 			<field name="arch" type="xml">
 				<tree string="Student Tree">
 					<field name="name" />
-					<field name="class_id" />
+					<field name="ethnic_id" />
+					<field name="country_id" />
 				</tree>
 			</field>
 		</record>
@@ -31,7 +32,8 @@
 						</div>
 						<group>
 							<group>
-								<field name="class_id" />
+								<field name="ethnic_id" />
+								<field name="country_id" />
 							</group>
 						</group>
 						<notebook>
