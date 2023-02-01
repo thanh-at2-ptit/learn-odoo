@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="education_class_report_pivot" model="ir.ui.view">
+		<field name ="name">education.class.report2</field>	
+		<field name="model">education.class.report2</field>
+		<field name="arch" type="xml">
+			<pivot>
+<!-- 				<field name="class_id" type="row"></field>
+				<field name="date" type="col"></field>
+				<field name="student_id" type="col"></field> -->
+				<field name="date" type="col"></field>
+			</pivot>
+		</field>
+	</record>
+	
+	<record id="education_class_report_graph" model="ir.ui.view">
+		<field name="name">education.class.report.graph2</field>
+		<field name="model">education.class.report2</field>
+		<field name="arch" type ="xml">
+			<graph>
+<!-- 				 <field name="REF" type="measure"></field> -->
+<!-- 				 <field name="class_id"/>
+                 <field name="enrollment" type="col"/> -->
+                 <field name="date" type="col"></field>
+			</graph>
+		</field>
+	</record>
+	
+	<record id="action_education_class_report2" model="ir.actions.act_window">
+		<field name="name">Education Class Report 2</field>
+        <field name="res_model">education.class.report2</field>
+        <field name="view_mode">graph,pivot</field>
+	</record>	
+	
+	<menuitem id="education_class_report_menu"
+		action="action_education_class_report2" parent="root_menu" sequence="100" />
+</odoo>

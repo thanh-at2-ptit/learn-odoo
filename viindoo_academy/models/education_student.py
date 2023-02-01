@@ -8,11 +8,11 @@ class EducationStudent(models.Model):
     name = fields.Char(
         string='Name',
         required=True)
+    
     class_id = fields.Many2one(
         comodel_name='education.class',
         string='Class', help="The Class of student")
-    
-    
+        
     class_ids = fields.Many2many(
         comodel_name='education.class',
         relation='class_education_rel',
@@ -22,7 +22,6 @@ class EducationStudent(models.Model):
 
     ethnic_id = fields.Many2one('res.ethnic')
     ethnic_code = fields.Char(related='ethnic_id.code', store=True)
-    
     ethnic_code2 = fields.Char(compute='_compute_ethnic_code2', store=True)
     country_id = fields.Many2one('res.country')
     

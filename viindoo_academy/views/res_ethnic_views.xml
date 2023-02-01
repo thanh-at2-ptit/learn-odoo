@@ -8,6 +8,7 @@
 				<tree string="Class Form">
 					<field name="name" />
 					<field name="code" />
+					<field name="country_ids" />
 				</tree>
 			</field>
 		</record>
@@ -18,20 +19,28 @@
 			<field name="arch" type="xml">
 				<form string="Class Form">
 					<sheet>
-					<header>
+<!-- 					<header>
 						<button name="button_abc" groups="account.group_account_manager" />
-					</header>
+					</header> -->
 						<group>
 							<field name="name" />
-							<field name="code" groups="base.group_user" />
+							<field name="code"/> <!-- groups="base.group_user" --> 
+							<field name="country_ids" />
 						</group>
 
 					</sheet>
 				</form>
 			</field>
 		</record>
-
-
-
+		
+		
+		<record id="ethnic_action"
+			model="ir.actions.act_window">
+			<field name="name">Ethnic</field>
+			<field name="res_model">res.ethnic</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem id="ethnic_menu" action="ethnic_action" parent="root_menu" sequence="10" />
 	</data>
 </odoo>
