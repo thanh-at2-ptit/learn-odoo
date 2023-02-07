@@ -87,10 +87,5 @@
 			action="education_student_action" parent="root_menu" sequence="10" />
 
 
-
-
-
-
-
 	</data>
 </odoo>

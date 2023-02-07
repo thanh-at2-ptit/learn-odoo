@@ -1,20 +1,8 @@
 <odoo>
     <data>
-<record id="deducation_class_view_tree" model="ir.ui.view">
-
-
-
-
-
-
-</record>
-
-
-
-
-
-
-
+		<record id="deducation_class_view_tree" model="ir.ui.view">
+		
+		</record>
 
     </data>
 </odoo>

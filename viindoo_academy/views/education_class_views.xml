@@ -148,7 +148,5 @@
 		<menuitem id="education_class_menu"
 			action="education_class_action" parent="root_menu" sequence="10" />
 
-
-
 	</data>
 </odoo>

@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','website'],
 
     # always loaded
     'data': [
@@ -32,8 +32,12 @@
         'views/education_student_views.xml',
         'views/education_enrollment_views.xml',
         'views/res_ethnic_views.xml',
-        'reports/education_class_report_views2.xml'
-        # 'views/templates.xml',
+        'reports/education_class_report_views2.xml',
+        'views/education_class_views.xml',
+        'views/academy_templates.xml',
+        'views/academy_teacher.xml',
+        # neu khai bao o day se luon luon co du lieu demo
+        # 'demo/demo.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

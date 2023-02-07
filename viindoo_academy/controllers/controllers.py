@@ -1,21 +1,26 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
 
+class Academy(http.Controller):
+    
+    # @http.route('/academy/academy/', auth='public')
+    # def index(self, **kw):
+    #     return http.request.render('academy.index', {})
+    #     return"Hello, world"
+    
+    # @http.route('/academy/academy/', auth='public')
+    # def index(self, **kw):
+    #     return http.request.render('viindoo_academy.academy', {
+    #         'class': ["Class1", "Class 2", "Class 3"],
+    #         })
 
-# class ViindooAcademy(http.Controller):
-#     @http.route('/viindoo_academy/viindoo_academy', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
-
-#     @http.route('/viindoo_academy/viindoo_academy/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('viindoo_academy.listing', {
-#             'root': '/viindoo_academy/viindoo_academy',
-#             'objects': http.request.env['viindoo_academy.viindoo_academy'].search([]),
-#         })
-
-#     @http.route('/viindoo_academy/viindoo_academy/objects/<model("viindoo_academy.viindoo_academy"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('viindoo_academy.object', {
-#             'object': obj
-#         })
+    @http.route('/academy/academy/', auth='public', website=True)
+    def index(self, **kw):
+        Teachers = http.request.env['academy.teacher']
+        return http.request.render('viindoo_academy.academy', {
+            'teachers': Teachers.search([])
+        })
+        
+    # Create automatic route
+    # @http.route('/academy/<name>/', auth='public', website=True)
+    # def teacher(self, name):
+    #     return '<h1>{}</h1>'.format(name)
