@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "viin_vip_academy",
+    'name': "viin_vip_academy_v14",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','viindoo_academy'],
+    'depends': ['base','viindoo_academy_v14'],
 
     # always loaded
     'data': [

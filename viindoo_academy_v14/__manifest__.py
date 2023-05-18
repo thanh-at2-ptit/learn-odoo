@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "viindoo_academy",
+    'name': "viindoo_academy_v14",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
